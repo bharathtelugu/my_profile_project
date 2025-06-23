@@ -31,7 +31,7 @@ This is a responsive personal portfolio website that showcases my background, te
 
 ## 🌐 Live Demo
 
-👉 [Visit Website](https://bharath73861.github.io/MyProfile_bharath/)
+👉 [Visit Website](https://bharathtelugu.github.io/my_profile_project/)
 
 ---
 

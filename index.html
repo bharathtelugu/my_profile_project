@@ -13,6 +13,10 @@
 </head>
 <body>
     <header class="profile-header">
+        <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
         <img src="profile.jpg" alt="Bharath Kumar" class="profile-pic">
         <h1>Bharath Kumar</h1>
         <p class="subtitle">Final-year CSE Student | Aspiring AI & Cloud Engineer</p>
@@ -55,7 +59,7 @@
 
         <section id="projects" class="card hidden">
             <h2>Projects</h2>
-            <div class="project-grid">    
+            <div class="project-grid">
                 <div class="project-item">
                     <h3>Organic Farming Project</h3>
                     <p>A web project to support sustainable agriculture in Nayakallu.</p>
@@ -79,12 +83,13 @@
         <p>GitHub: <a href="https://github.com/bharath73861" target="_blank">@bharath73861</a></p>
 
         <div class="social-icons">
-            <a href="www.linkedin.com/in/bharathtelugu-ck" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/bharathtelugu-ck" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://www.instagram.com/unseen.bharath/?utm_source=ig_web_button_share_sheet" target="_blank"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </footer>
 
     <script>
+        // --- Scroll Animation Logic ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -92,9 +97,33 @@
                 }
             });
         });
-
         const hiddenElements = document.querySelectorAll('.hidden');
         hiddenElements.forEach((el) => observer.observe(el));
+
+        // --- Dark Mode Toggle Logic Added Back ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const toggleIcon = themeToggle.querySelector('i');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            toggleIcon.classList.remove('fa-moon');
+            toggleIcon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            let theme = 'light';
+            if (document.body.classList.contains('dark-mode')) {
+                theme = 'dark';
+                toggleIcon.classList.remove('fa-moon');
+                toggleIcon.classList.add('fa-sun');
+            } else {
+                toggleIcon.classList.remove('fa-sun');
+                toggleIcon.classList.add('fa-moon');
+            }
+            localStorage.setItem('theme', theme);
+        });
     </script>
 </body>
 </html>

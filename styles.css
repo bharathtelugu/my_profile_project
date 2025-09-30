@@ -1,10 +1,26 @@
-/* --- Global Styles & Variables --- */
+/* --- Global Styles & CSS Variables --- */
 :root {
-    --primary-color: #007bff;
-    --dark-color: #2c3e50;
-    --light-color: #f8f9fa;
-    --white-color: #ffffff;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Bright and Clean Light Theme */
+    --primary-color: #FDC84D; /* Golden Yellow */
+    --secondary-color: #e8b642; /* Darker Gold for Hover */
+    --background-color: #F5F5F5; /* Light Gray */
+    --card-background-color: #ffffff;
+    --text-color: #2F4858; /* Charcoal Gray */
+    --heading-color: #2F4858; /* Charcoal Gray */
+    --subtle-text-color: #6c757d;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.07);
+}
+
+body.dark-mode {
+    /* Modern and Bold Dark Theme */
+    --primary-color: #FFD700; /* Muted Gold */
+    --secondary-color: #ffe24a; /* Brighter Gold for Hover */
+    --background-color: #1F262B; /* Deep Charcoal */
+    --card-background-color: #2d3748; /* Lighter Charcoal */
+    --text-color: #F0F0F0; /* Soft Off-white */
+    --heading-color: #F0F0F0; /* Soft Off-white */
+    --subtle-text-color: #a0aec0;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 body {
@@ -12,8 +28,9 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -23,7 +40,7 @@ body {
 }
 
 h1, h2, h3 {
-    color: var(--dark-color);
+    color: var(--heading-color);
     margin-bottom: 10px;
 }
 
@@ -31,22 +48,47 @@ a {
     color: var(--primary-color);
     text-decoration: none;
     transition: color 0.3s ease;
+    font-weight: 600;
 }
 
 a:hover {
-    color: #0056b3;
+    color: var(--secondary-color);
     text-decoration: underline;
 }
 
+/* --- Theme Toggle Button --- */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--card-background-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--primary-color);
+}
 
 /* --- Header --- */
 .profile-header {
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    color: var(--white-color);
+    background: var(--card-background-color);
+    color: var(--text-color);
     padding: 40px 20px;
     text-align: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    position: relative;
+    border-bottom: 2px solid var(--primary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .profile-pic {
@@ -54,14 +96,14 @@ a:hover {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid var(--white-color);
+    border: 5px solid var(--primary-color);
     box-shadow: var(--shadow);
     margin-bottom: 15px;
 }
 
 .profile-header h1 {
     margin: 0;
-    color: var(--white-color);
+    color: var(--heading-color);
     font-size: 2.5em;
     font-weight: 600;
 }
@@ -70,52 +112,38 @@ a:hover {
     margin: 5px 0 0;
     font-size: 1.1em;
     font-weight: 300;
+    color: var(--subtle-text-color);
 }
-
 
 /* --- Card Layout for Sections --- */
 .card {
-    background: var(--white-color);
+    background: var(--card-background-color);
     padding: 25px;
     margin-bottom: 20px;
     border-radius: 12px;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
-
 
 /* --- Skills Section with Pills --- */
-.skills-container {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.skill-category {
-    flex: 1;
-    min-width: 250px;
-}
-
-.skill-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+.skills-container { display: flex; gap: 30px; flex-wrap: wrap; }
+.skill-category { flex: 1; min-width: 250px; }
+.skill-pills { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .skill-pills span {
-    background-color: #e9ecef;
-    color: var(--dark-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding: 8px 15px;
     border-radius: 20px;
     font-size: 0.9em;
     font-weight: 500;
+    border: 1px solid var(--primary-color);
 }
-
 
 /* --- Projects Section with Grid --- */
 .project-grid {
@@ -125,86 +153,50 @@ a:hover {
 }
 
 .project-item {
-    background: var(--light-color);
+    background: var(--background-color);
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid #dee2e6;
-    transition: transform 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.project-item:hover {
-    transform: scale(1.03);
-}
-
-.project-item h3 {
-    margin-top: 0;
-}
-
-.project-item p {
-    font-size: 0.95em;
-    margin-bottom: 15px;
-}
-
-.project-item a {
-    font-weight: 600;
-}
-
+.project-item:hover { transform: scale(1.03); }
+.project-item h3 { margin-top: 0; }
+.project-item p { font-size: 0.95em; margin-bottom: 15px; }
 
 /* --- Certifications List --- */
-#certs ul {
-    list-style-type: '✅  ';
-    padding-left: 20px;
-}
-
+#certs ul { list-style-type: '✅  '; padding-left: 20px; }
 
 /* --- Footer --- */
 footer {
-    background: var(--dark-color);
-    color: var(--light-color);
+    background: var(--heading-color);
+    color: var(--background-color);
     text-align: center;
     padding: 30px 20px;
     margin-top: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-footer h2 {
-    color: var(--white-color);
-}
-
-footer a {
-    color: var(--white-color);
-    font-weight: 600;
-}
-
+footer h2 { color: var(--background-color); }
+footer a { color: var(--background-color); }
+footer a:hover { color: var(--background-color); opacity: 0.8; }
 
 /* --- Animation Styles --- */
-.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
+.hidden { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.show { opacity: 1; transform: translateY(0); }
 
 /* --- Social Media Icon Styles --- */
-.social-icons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
+.social-icons { margin-top: 20px; display: flex; justify-content: center; gap: 25px; }
 
 .social-icons a {
-    color: var(--white-color);
+    color: var(--background-color);
     font-size: 1.8rem;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: var(--primary-color);
-    transform: scale(1.2);
+    color: var(--background-color);
+    transform: scale(1.2) translateY(-3px);
     text-decoration: none;
+    opacity: 0.8;
 }

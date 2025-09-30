@@ -1,90 +1,210 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #007bff;
+    --dark-color: #2c3e50;
+    --light-color: #f8f9fa;
+    --white-color: #ffffff;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-  color: #333;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-color);
+    color: var(--dark-color);
 }
 
-header {
-  background: #057cec;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px;
 }
 
-.profile-header {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  background: #222;
-  color: #fff;
-}
-
-.profile-pic-centered {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%; /* This makes it a circle */
-  object-fit: cover;   /* Ensures the image fills the circle */
-  border: 3px solid #3498db;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 15px;
-}
-
-
-.profile-pic-left {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-right: 20px;
-  object-fit: cover;
-  border: 3px solid #3498db;
-}
-
-.header-text h1 {
-  margin: 0;
-  font-size: 28px;
-}
-
-.header-text p {
-  margin: 5px 0 0;
-  font-size: 16px;
-}
-
-
-section {
-  padding: 20px;
-  margin: 0 auto;
-  max-width: 800px;
-  background: white;
-  margin-top: 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  border-radius: 8px;
-}
-
-h1, h2 {
-  color: #2c3e50;
-}
-
-ul {
-  list-style: square;
-  padding-left: 20px;
+h1, h2, h3 {
+    color: var(--dark-color);
+    margin-bottom: 10px;
 }
 
 a {
-  color: #3498db;
-  text-decoration: none;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+    color: #0056b3;
+    text-decoration: underline;
 }
 
+
+/* --- Header --- */
+.profile-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: var(--white-color);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--white-color);
+    box-shadow: var(--shadow);
+    margin-bottom: 15px;
+}
+
+.profile-header h1 {
+    margin: 0;
+    color: var(--white-color);
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+.profile-header .subtitle {
+    margin: 5px 0 0;
+    font-size: 1.1em;
+    font-weight: 300;
+}
+
+
+/* --- Card Layout for Sections --- */
+.card {
+    background: var(--white-color);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Skills Section with Pills --- */
+.skills-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 250px;
+}
+
+.skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-pills span {
+    background-color: #e9ecef;
+    color: var(--dark-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+
+/* --- Projects Section with Grid --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-item {
+    background: var(--light-color);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: scale(1.03);
+}
+
+.project-item h3 {
+    margin-top: 0;
+}
+
+.project-item p {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+}
+
+.project-item a {
+    font-weight: 600;
+}
+
+
+/* --- Certifications List --- */
+#certs ul {
+    list-style-type: '✅  ';
+    padding-left: 20px;
+}
+
+
+/* --- Footer --- */
 footer {
-  background: #222;
-  color: #fff;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: 20px;
+    background: var(--dark-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 30px;
+}
+
+footer h2 {
+    color: var(--white-color);
+}
+
+footer a {
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+
+/* --- Animation Styles --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Social Media Icon Styles --- */
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icons a {
+    color: var(--white-color);
+    font-size: 1.8rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
+    text-decoration: none;
 }

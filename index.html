@@ -1,74 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bharath Kumar - Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bharath Kumar - Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
-    <header class="profile-header-centered">
-        <img src="profile.jpg" alt="Bharath Kumar" class="profile-pic-centered">
+    <header class="profile-header">
+        <img src="profile.jpg" alt="Bharath Kumar" class="profile-pic">
         <h1>Bharath Kumar</h1>
-        <p>Final-year CSE Student | Aspiring AI & Cloud Engineer</p>
+        <p class="subtitle">Final-year CSE Student | Aspiring AI & Cloud Engineer</p>
     </header>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>I'm a final-year B.Tech student from Dr. K.V. Subba Reddy Institute of Technology, Kurnool. I'm passionate about web development, cloud infrastructure, and artificial intelligence. I enjoy learning by doing and collaborating on meaningful tech projects.</p>
-  </section>
+    <main class="container">
+        <section id="about" class="card hidden">
+            <h2>About Me</h2>
+            <p>I'm a final-year B.Tech student from Dr. K.V. Subba Reddy Institute of Technology, Kurnool. I'm passionate about web development, cloud infrastructure, and artificial intelligence. I enjoy learning by doing and collaborating on meaningful tech projects.</p>
+        </section>
 
-  <section class="skills">
-    <h2>Tech Skills</h2>
-    <h3>Existing Skills</h3>
-    <ul>
-      <li>C, Python, JavaScript</li>
-      <li>HTML5, CSS3, PHP, MySQL</li>
-      <li>Git & GitHub, XAMPP</li>
-    </ul>
-    <h3>Learning In Progress</h3>
-    <ul>
-      <li>Full Stack Development (MERN)</li>
-      <li>AI/ML with Python, Scikit-learn, TensorFlow</li>
-      <li>Cloud Engineering & DevOps</li>
-      <li>Cybersecurity & Web App Security</li>
-    </ul>
-  </section>
+        <section id="skills" class="card hidden">
+            <h2>Tech Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Core Skills</h3>
+                    <div class="skill-pills">
+                        <span>C</span>
+                        <span>Python</span>
+                        <span>JavaScript</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>Git & GitHub</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Learning In Progress</h3>
+                    <div class="skill-pills">
+                        <span>MERN Stack</span>
+                        <span>AI/ML</span>
+                        <span>TensorFlow</span>
+                        <span>Cloud & DevOps</span>
+                        <span>Cybersecurity</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <section class="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Personal Website:</strong> <a href="https://bharath73861.github.io/MyProfile_bharath" target="_blank">View</a></li>
-      <li><strong>Cloud Infra Setup:</strong> Jumphost + HTTP Load Balancer using GCP</li>
-      <li><strong>Organic Farming Project:</strong> Sustainable agriculture web project in Nayakallu</li>
-      <li><strong>Flight Ticket Generator:</strong> Python-based ticket generator</li>
-    </ul>
-  </section>
+        <section id="projects" class="card hidden">
+            <h2>Projects</h2>
+            <div class="project-grid">    
+                <div class="project-item">
+                    <h3>Organic Farming Project</h3>
+                    <p>A web project to support sustainable agriculture in Nayakallu.</p>
+                </div>
+            </div>
+        </section>
 
-  <section class="certs">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Introduction to Cloud Computing – IBM/NPTEL</li>
-      <li>Web Development Fundamentals – freeCodeCamp</li>
-      <li>Digital Image Processing – NPTEL (IIT Kharagpur)</li>
-    </ul>
-  </section>
+        <section id="certs" class="card hidden">
+            <h2>Certifications</h2>
+            <ul>
+                <li>Introduction to Cloud Computing – IBM/NPTEL</li>
+                <li>Web Development Fundamentals – freeCodeCamp</li>
+                <li>Digital Image Processing – NPTEL (IIT Kharagpur)</li>
+            </ul>
+        </section>
+    </main>
 
-  <section class="goals">
-    <h2>Aspirations</h2>
-    <ul>
-      <li>🤖 AI Engineer</li>
-      <li>☁️ Cloud Engineer</li>
-      <li>💻 Full Stack Web Developer</li>
-      <li>🔐 Cybersecurity Enthusiast</li>
-      <li>📚 Lifelong Learner & Educator</li>
-    </ul>
-  </section>
+    <footer>
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:bharathchintakayala73861@gmail.com">bharathchintakayala73861@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/bharath73861" target="_blank">@bharath73861</a></p>
 
-  <footer>
-    <h2>Contact</h2>
-    <p>Email: bharathchintakayala73861@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/bharath73861" target="_blank">@bharath73861</a></p>
-  </footer>
+        <div class="social-icons">
+            <a href="www.linkedin.com/in/bharathtelugu-ck" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/unseen.bharath/?utm_source=ig_web_button_share_sheet" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
